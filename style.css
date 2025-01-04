@@ -1,0 +1,136 @@
+html, body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    scroll-behavior: smooth;
+}
+html {
+     /* background-image: url("https://wallpaper.dog/large/10871886.png"); */
+    background-image: linear-gradient(#f9fcf8,#f9fcf8 ,#9afc59, #4ae602f1); 
+}
+
+header {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+nav ul li a:hover {
+    color: #ffc107;
+}
+
+h3{
+    color: wheat;
+}
+main {
+    padding: 20px;
+}
+.section {
+    margin-bottom: 30px;
+}
+.carousel {
+    max-width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.carousel img:hover {
+    transform: scale(1.05);
+}
+.product-grid {
+    display: grid;
+}
+div p {
+    color:tomato;
+    font-weight: bold;
+}
+div a {
+    color: rgb(8, 13, 36);
+    background-color:#ffc107 ;
+    border-radius: 2px;
+    text-decoration: none;
+}
+.product {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-color: tomato transparent;
+    background-color: rgb(105, 49, 39);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.product:hover {
+    transform: translateY(-5px);
+}
+.product img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+form input, form textarea, form button {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    box-sizing: border-box;
+}
+form button {
+    background-color: tomato;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+form button:hover {
+    background-color: #555;
+}
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+footer ul li {
+    display: inline;
+    margin-right: 10px;
+}
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+footer ul li a:hover {
+    color: #ffc107;
+}
+
+
+body { background: wheat; /* background-image: url("https://wallpaper.dog/large/10871886.png"); */ background-image: linear-gradient(#f9fcf8,#f9fcf8 ,#9afc59, #4ae602f1); 
+} 
