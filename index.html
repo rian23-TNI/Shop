@@ -3,46 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tracking Lokasi</title>
+    <title>Tracking Lokasi Otomatis</title>
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Tracking Lokasi Ponsel</h2>
-    <button onclick="getLocation()">Dapatkan Lokasi</button>
-    <p id="location">Lokasi akan muncul di sini...</p>
+    <h2>Tracking Lokasi Otomatis</h2>
+    <p id="location">Mengambil lokasi...</p>
+    <div id="map"></div>
 
     <script>
+        let map, marker;
+
+        function initMap(latitude, longitude) {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: latitude, lng: longitude },
+                zoom: 15,
+            });
+
+            marker = new google.maps.Marker({
+                position: { lat: latitude, lng: longitude },
+                map: map,
+                title: "Lokasi Anda",
+            });
+        }
+
+        function updateMap(latitude, longitude) {
+            let newPos = { lat: latitude, lng: longitude };
+            marker.setPosition(newPos);
+            map.setCenter(newPos);
+        }
+
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition, showError);
+                navigator.geolocation.watchPosition(
+                    function (position) {
+                        let latitude = position.coords.latitude;
+                        let longitude = position.coords.longitude;
+
+                        document.getElementById("location").innerHTML =
+                            "Latitude: " + latitude + "<br>Longitude: " + longitude +
+                            `<br><a href="https://www.google.com/maps?q=${latitude},${longitude}" target="_blank">Lihat di Google Maps</a>`;
+
+                        if (!map) {
+                            initMap(latitude, longitude);
+                        } else {
+                            updateMap(latitude, longitude);
+                        }
+                    },
+                    function (error) {
+                        document.getElementById("location").innerHTML = "Gagal mendapatkan lokasi.";
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        maximumAge: 0
+                    }
+                );
             } else {
                 document.getElementById("location").innerHTML = "Geolocation tidak didukung di browser ini.";
             }
         }
 
-        function showPosition(position) {
-            let latitude = position.coords.latitude;
-            let longitude = position.coords.longitude;
-            document.getElementById("location").innerHTML = 
-                "Latitude: " + latitude + "<br>Longitude: " + longitude +
-                `<br><a href="https://www.google.com/maps?q=${latitude},${longitude}" target="_blank">Lihat di Google Maps</a>`;
-        }
-
-        function showError(error) {
-            switch(error.code) {
-                case error.PERMISSION_DENIED:
-                    document.getElementById("location").innerHTML = "Izin lokasi ditolak oleh pengguna.";
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    document.getElementById("location").innerHTML = "Informasi lokasi tidak tersedia.";
-                    break;
-                case error.TIMEOUT:
-                    document.getElementById("location").innerHTML = "Permintaan lokasi melebihi batas waktu.";
-                    break;
-                case error.UNKNOWN_ERROR:
-                    document.getElementById("location").innerHTML = "Terjadi kesalahan yang tidak diketahui.";
-                    break;
-            }
-        }
+        window.onload = getLocation;
     </script>
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 </body>
 </html>
