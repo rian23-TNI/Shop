@@ -14,7 +14,7 @@
 </head>
 <body>
     <h2>Tracking Lokasi Otomatis</h2>
-    <p id="location">Mengambil lokasi...</p>
+    <p id="location"></p>
     <div id="map"></div>
 
     <script>
@@ -48,7 +48,7 @@
 
                         document.getElementById("location").innerHTML =
                             "Latitude: " + latitude + "<br>Longitude: " + longitude +
-                            `<br><a href="https://www.google.com/maps?q=${latitude},${longitude}" target="_blank">Lihat di Google Maps</a>`;
+                            `<br><a href="https://www.google.com/maps?q=${latitude},${longitude}" target="_blank">Lihat pesanan lok. di Google Maps</a>`;
 
                         if (!map) {
                             initMap(latitude, longitude);
@@ -57,7 +57,7 @@
                         }
                     },
                     function (error) {
-                        document.getElementById("location").innerHTML = "Gagal mendapatkan lokasi.";
+                        document.getElementById("location").innerHTML = "terima kasih!.";
                     },
                     {
                         enableHighAccuracy: true,
