@@ -9,16 +9,16 @@
 </head>
 <body>
 <header>
-        <h1 style="color: tomato;">"Kartika Snack"</h1>
-        <nav>
+        <h1 style="color: tomato;">"Kartika Ramadhan Snack"</h1>
+       <nav>
             <ul>
                 <li><a href="#Beranda">Beranda</a></li>
                 <li><a href="#produk">Produk</a></li>
                 <li><a href="#cara-pesan">Cara Pesan</a></li>
                 <li><a href="#lokasi">Lokasi</a></li>
             </ul>
-        </nav>
-    </header>
+       </nav> 
+</header>
 
 
 
@@ -28,67 +28,7 @@
             <p>Kami menjual berbagai macam produk Makanan & Pemesanan berkualitas dengan harga terjangkau.</p>
         </section>
 
-            <p id="location"></p>
-   
-
-    <script>
-        let map, marker;
-
-        function initMap(latitude, longitude) {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: latitude, lng: longitude },
-                zoom: 15,
-            });
-
-            marker = new google.maps.Marker({
-                position: { lat: latitude, lng: longitude },
-                map: map,
-                title: "Lokasi Anda",
-            });
-        }
-
-        function updateMap(latitude, longitude) {
-            let newPos = { lat: latitude, lng: longitude };
-            marker.setPosition(newPos);
-            map.setCenter(newPos);
-        }
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.watchPosition(
-                    function (position) {
-                        let latitude = position.coords.latitude;
-                        let longitude = position.coords.longitude;
-
-                        document.getElementById("location").innerHTML =
-                            "target pesanan: " + latitude + "<br>Harapan pesanan: " + longitude +
-                            `<br><a href="https://www.google.com/maps?q=${latitude},${longitude}" target="_blank">Lihat pesanan lok. di Google Maps</a>`;
-
-                        if (!map) {
-                            initMap(latitude, longitude);
-                        } else {
-                            updateMap(latitude, longitude);
-                        }
-                    },
-                    function (error) {
-                        document.getElementById("location").innerHTML = "terima kasih!.";
-                    },
-                    {
-                        enableHighAccuracy: true,
-                        maximumAge: 0
-                    }
-                );
-            } else {
-                document.getElementById("location").innerHTML = "Geolocation tidak didukung di browser ini.";
-            }
-        }
-
-        window.onload = getLocation;
-    </script>
-
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
-
+            
         <section id="produk" class="section">
             <h2 style="color: tomato">Produk</h2>
                 <!-- Add more images here -->
