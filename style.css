@@ -89,9 +89,22 @@ div p {
 div a {
     color: rgb(8, 13, 36);
     background-color:#ffc107 ;
-    border-radius: 2px;
-    text-decoration: none;
+    border-radius: 3px;
+
+    display:inline-block;
+    padding:12px 25px;
+    background:#4f46e5;
+    text-decoration:none;
+
+    /* Shadow */
+    box-shadow:0 5px 10px rgba(0,0,0,0.3);
+
+    transition:0.2s;
 }
+div a:active{
+    transform:translateY(2px);
+    box-shadow:0 2px 5px rgba(0,0,0,0.3);
+    
 .product {
     background-color: #fff;
     border: 1px solid #ced4da;
