@@ -18,6 +18,26 @@ header {
     text-align: center;
 }
 
+
+.bulat {
+  width: 25px;
+  height: 25px;
+  background: blue;
+  border-radius: 50%;
+  
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:fixed;
+  right:20px;
+  top:30%;
+}
+
+
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -82,9 +102,6 @@ div a {
 
     transition:0.2s;
 }
-div a:active{
-    transform:translateY(2px);
-    box-shadow:0 2px 5px rgba(0,0,0,0.3);
     
 .product {
     background-color: #fff;
