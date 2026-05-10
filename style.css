@@ -17,6 +17,22 @@ header {
     padding: 20px 0;
     text-align: center;
 }
+
+.bulat {
+  width: 25px;
+  height: 25px;
+  background: blue;
+  border-radius: 50%;
+  
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
